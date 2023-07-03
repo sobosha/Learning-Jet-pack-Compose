@@ -21,30 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val constraints = ConstraintSet{
-                val redBox = createRefFor("red_box")
-                val blueBox = createRefFor("blue_box")
-
-                constrain(redBox){
-                    top.linkTo(parent.top)
-                    start.linkTo(parent.start)
-                    width = Dimension.value(50.dp)
-                    height = Dimension.value(200.dp)
-                }
-
-                constrain(blueBox){
-                    top.linkTo(parent.top)
-                    start.linkTo(redBox.end)
-                    width = Dimension.value(200.dp)
-                    height = Dimension.value(200.dp)
-                }
-                createHorizontalChain(redBox , blueBox , chainStyle = ChainStyle.Packed)
-            }
-
-            ConstraintLayout(modifier = Modifier.fillMaxSize(), constraintSet = constraints) {
-                Box(modifier = Modifier.background(Color.Red).layoutId("red_box"))
-                Box(modifier = Modifier.background(Color.Blue).layoutId("blue_box"))
-            }
+            HomeScreen()
         }
     }
 }
