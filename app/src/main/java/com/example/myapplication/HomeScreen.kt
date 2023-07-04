@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,6 +42,7 @@ fun HomeScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Blue)
+            .padding(16.dp)
     ) {
         GreetingSection()
         ChooseSection(chips = listOf("Sweet Dream", "Insomnia", "Depression"))
@@ -50,6 +52,9 @@ fun HomeScreen() {
                 Feature(
                     "Music String", R.drawable
                         .ic_play_circle, Color.Green
+                ), Feature(
+                    "String", R.drawable
+                        .ic_search, Color.Red
                 )
             )
         )
@@ -174,6 +179,7 @@ fun Feature(
             .fillMaxSize()
             .padding(12.dp)
             .background(feature.color)
+            .aspectRatio(1f)
     ) {
         Text(
             text = feature.name,
